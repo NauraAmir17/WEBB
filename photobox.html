@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Photobooth Terdekat | UNESA</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+    <link rel="stylesheet" href="photobox.css">
+</head>
+<body>
+    <main class="photobox-page">
+        <a class="back-link" href="./index.html?day=06" aria-label="Kembali ke halaman utama, Kamis 06 Agustus 2026"><i class="fa-solid fa-house"></i> Beranda</a>
+        <header class="page-header">
+            <span class="eyebrow"><i class="fa-solid fa-camera-retro"></i> REKOMENDASI VERSI MIMIN</span>
+            <h1>Rekomendasi Photobooth</h1>
+            <p>Tempat untuk mengabadikan momen setelah pengambilan almamater.</p>
+            <p>Hanya 15-30 menit aja dari tempat pengambilan</p>
+        </header>
+
+        <p class="location-note"><i class="fa-solid fa-location-dot"></i> Titik acuan jarak: Gedung Serba Guna GSG UNESA KETINTANG </p>
+        <section id="photoboxGrid" class="photobox-grid" aria-label="Daftar photobox"></section>
+        <section class="place-search" aria-labelledby="searchTitle">
+            <div class="place-search__heading">
+                <span><i class="fa-solid fa-magnifying-glass-location"></i> CARI TEMPAT LAIN</span>
+                <h2 id="searchTitle">Belum menemukan yang cocok?</h2>
+                <p>Cari tempat mana pun dan lihat lokasi aslinya di Google Maps.</p>
+            </div>
+            <form id="placeSearchForm" class="place-search__form">
+                <label class="sr-only" for="placeSearchInput">Cari tempat di Google Maps</label>
+                <input id="placeSearchInput" type="search" placeholder="Ketik : photobox atau Photobooth" autocomplete="off" required>
+                <button type="submit"><i class="fa-solid fa-magnifying-glass"></i> Cari di Maps</button>
+            </form>
+            <div id="placeSuggestions" class="place-suggestions" aria-live="polite"></div>
+            <div id="placeSearchResult" class="place-search__result" aria-live="polite"></div>
+        </section>
+
+    </main>
+    <script src="photobox.js"></script>
+</body>
+</html>

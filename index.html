@@ -1,0 +1,412 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Countdown Pengambilan Almamater</title>
+
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="journey.css">
+
+    <!-- Font -->
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+
+    <!-- Icon -->
+
+    <link rel="stylesheet"
+    href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css">
+
+    <!-- Favicon -->
+
+    <link rel="icon" href="assets/favicon.ico">
+
+</head>
+
+<body>
+
+
+<!-- ===== SIDEBAR MENU ===== -->
+<button id="menuBtn" class="menu-btn">
+    <i class="fa-solid fa-bars"></i>
+</button>
+
+<div id="overlay" class="overlay"></div>
+
+<nav id="sideMenu" class="side-menu">
+
+    <div class="menu-header">
+        <i class="fa-solid fa-compass"></i>
+        <span>Menu Informasi</span>
+    </div>
+
+    <div class="schedule-menu-title">
+        <i class="fa-solid fa-calendar-days"></i>
+        Jadwal Pengambilan
+    </div>
+
+<a href="#" data-day="06">
+    <span>06 Agustus 2026</span>
+    <i class="fa-solid fa-circle active-dot"></i>
+</a>
+
+<a href="#" data-day="07">
+    <span>07 Agustus 2026</span>
+    <i class="fa-solid fa-circle active-dot"></i>
+</a>
+
+<a href="#" data-day="08">
+    <span>08 Agustus 2026</span>
+    <i class="fa-solid fa-circle active-dot"></i>
+</a>
+
+<a href="#" data-day="09">
+    <span>09 Agustus 2026</span>
+    <i class="fa-solid fa-circle active-dot"></i>
+</a>
+
+<a href="#" data-day="10">
+    <span>10 Agustus 2026</span>
+    <i class="fa-solid fa-circle active-dot"></i>
+</a>
+
+<a href="#" data-day="11">
+    <span>11 Agustus 2026</span>
+    <i class="fa-solid fa-circle active-dot"></i>
+</a>
+
+<a href="#" data-day="12">
+    <span>12 Agustus 2026</span>
+    <i class="fa-solid fa-circle active-dot"></i>
+</a>
+
+    <div class="menu-divider" role="separator"></div>
+
+    <a href="./photobox.html" class="photobox-menu-link">
+        <span><i class="fa-solid fa-camera-retro"></i> Photobooth Terdekat</span>
+        <i class="fa-solid fa-chevron-right menu-chevron"></i>
+    </a>
+
+    <a href="#" id="contactAdminLink" class="menu-action-link admin-menu-link">
+        <span><i class="fa-brands fa-whatsapp"></i> Kontak Admin</span>
+        <i class="fa-solid fa-chevron-right menu-chevron"></i>
+    </a>
+
+    <a href="./kritik-saran.html" class="menu-action-link feedback-menu-link">
+        <span><i class="fa-solid fa-message"></i> Kritik &amp; Saran</span>
+        <i class="fa-solid fa-chevron-right menu-chevron"></i>
+    </a>
+
+    <div class="menu-footer">
+
+        <small>Countdown menuju</small>
+
+        <h4 id="selectedDateText">
+            06 Agustus 2026
+        </h4>
+
+    </div>
+
+</nav>
+
+<!-- ================= NOTIFIKASI ================= -->
+
+<div id="top-notification" class="top-notification">
+
+    <i class="fa-solid fa-circle-info"></i>
+
+    <span>
+        Bukan Website Resmi Dari UNESA
+    </span>
+
+</div>
+
+<div id="loader">
+
+    <div class="journey">
+
+    <i class="fa-solid fa-house home"></i>
+
+    <div class="track">
+
+        <div class="progress"></div>
+
+        <i class="fa-solid fa-person walker"></i>
+
+    </div>
+
+    <i class="fa-solid fa-building-columns campus"></i>
+
+     </div>
+
+<div class="loader-text">
+
+    Sedang Menuju Kampus ...
+
+</div>
+
+</div>
+
+<div class="container">
+
+<!-- ================= HEADER ================= -->
+
+<header>
+
+
+
+<h1>
+    Countdown Pembukaan Pengambilan
+   <br>
+   Jas Almamater UNESA </br>
+</h1>
+
+</header>
+
+<!-- ================= WARNING ================= -->
+
+<div class="warning-box">
+
+<h2>
+
+JANGAN SAMPAI SALAH PILIH UKURAN
+
+</h2>
+
+<i class="fa-solid fa-triangle-exclamation"></i>
+
+</div>
+
+<!-- ================= COUNTDOWN ================= -->
+
+<section class="countdown">
+
+<div class="card">
+
+<div class="number" id="days">00</div>
+
+<div class="label">Hari</div>
+
+</div>
+
+<div class="card">
+
+<div class="number" id="hours">00</div>
+
+<div class="label">Jam</div>
+
+</div>
+
+<div class="card">
+
+<div class="number" id="minutes">00</div>
+
+<div class="label">Menit</div>
+
+</div>
+
+<div class="card">
+
+<div class="number" id="seconds">00</div>
+
+<div class="label">Detik</div>
+
+</div>
+
+</section>
+
+<p id="message" aria-live="polite"></p>
+
+
+
+<div>
+   <h3 id="countdownHero" class="hero-title">
+    ✨ Menuju Pembukaan Pengambilan Jas Almamater ✨
+</h3>
+
+<p id="countdownTitle" class="countdown-date">
+    Kamis, 07 Agustus 2026
+</p>
+</div>
+
+<!-- ================= PENGINGAT ================= -->
+<section class="reminder-card">
+    <h2><i class="fa-solid fa-bell"></i> Jangan Lewatkan Jadwalnya</h2>
+    <p>Simpan jadwal yang dipilih ke kalender atau aktifkan pengingat di perangkat ini.</p>
+    <div class="reminder-actions">
+        <button class="calendar-btn" id="addToCalendar">
+            <i class="fa-solid fa-calendar-plus"></i>
+            Tambah ke Kalender
+        </button>
+        <button class="notification-btn" id="enableNotification">
+            <i class="fa-solid fa-bell"></i>
+            Aktifkan Notifikasi
+        </button>
+    </div>
+    <small id="notificationStatus" class="notification-status" aria-live="polite"></small>
+</section>
+
+<!-- ================= PANDUAN ================= -->
+
+<section class="info-card">
+
+<h2>
+
+<i class="fa-solid fa-ruler"></i>
+
+Panduan Ukuran
+
+</h2>
+
+<p>
+
+Klik Untuk Melihat Ukuran
+
+</p>
+
+<button class="info-btn" id="openGuide">
+
+<i class="fa-solid fa-image"></i>
+
+Lihat Panduan
+
+</button>
+
+</section>
+
+
+<!-- ================= LOKASI ================= -->
+
+<section class="location-box">
+
+    <h2>
+        <i class="fa-solid fa-location-dot"></i>
+        Lokasi Pengambilan
+    </h2>
+
+    <div class="location-info">
+
+        <p>
+            <strong>📍 Gedung Serba Guna GSG Unesa</strong>
+        </p>
+
+        <p>
+            ⏰ Jam Pelayanan :
+            09.00 - 16.00 WIB
+        </p>
+
+    </div>
+
+    <div class="map-container">
+
+        <iframe
+            src="https://www.google.com/maps?q=Gedung+Serba+Guna+GSG+Unesa&output=embed"
+            loading="lazy"
+            allowfullscreen>
+        </iframe>
+
+    </div>
+
+    <a
+        href="https://www.google.com/maps?q=Gedung+Serba+Guna+GSG+Unesa"
+        target="_blank"
+        class="location-btn">
+
+        <i class="fa-solid fa-map-location-dot"></i>
+
+        Buka di Google Maps
+
+    </a>
+
+</section>
+
+<!-- ================= GROUP ================= -->
+
+<section class="group-box">
+
+<h2>
+
+<i class="fa-solid fa-users"></i>
+
+Grup Barter Almamater
+
+</h2>
+
+<p>
+
+Tukar Ukuranmu Disini
+
+</p>
+
+<a href="https://chat.whatsapp.com/Er9oNpNWRBiKaXEFC9uM7Q" class="group-btn">
+    <i class="fa-brands fa-whatsapp"></i>
+    Gabung Grup
+</a>
+
+
+</section>
+
+<!-- ================= MODAL ================= -->
+
+<div id="guideModal" class="modal">
+
+<div class="modal-content">
+
+<span class="close">
+
+&times;
+
+</span>
+
+<img
+
+src="assets/panduan-ukuran.png"
+
+alt="Panduan Ukuran">   
+
+<p class="image-source">
+    Source by :
+    <strong>Universitas Negeri Surabaya (UNESA)</strong>
+</p>
+
+</div>
+
+</div>
+
+<!-- ================= FOOTER ================= -->
+
+<footer>
+
+<p>
+
+© 2026 Pengambilan Almamater Unesa
+
+</p>
+
+<p>
+
+Developed by 
+
+<strong>
+
+AMIR 
+
+</strong>
+
+</p>
+
+</footer>
+
+</div>
+
+<script src="site-config.js"></script>
+<script src="journey.js"></script>
+<script src="script.js"></script>
+
+</body>
+
+</html>
