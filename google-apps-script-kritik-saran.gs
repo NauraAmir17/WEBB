@@ -3,8 +3,14 @@
 // lalu deploy sebagai Web App. URL hasil deploy diisi ke feedbackEndpoint
 // pada file site-config.js.
 
-const SPREADSHEET_ID = "1WkF4hv2aQEcaJVkWr0yZj8sKZDoupnkYF3etI-6FZ_c";
+const SPREADSHEET_ID = "1W7fgvtbCUdAZGELww7cHfZh9bUi4JY3hz8b8OHb0uGI";
 const SHEET_NAME = "Kritik & Saran";
+
+function doGet() {
+  return ContentService
+    .createTextOutput(JSON.stringify({ status: "Endpoint Kritik & Saran aktif" }))
+    .setMimeType(ContentService.MimeType.JSON);
+}
 
 function doPost(e) {
   const spreadsheet = SpreadsheetApp.openById(SPREADSHEET_ID);

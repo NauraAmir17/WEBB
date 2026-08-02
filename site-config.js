@@ -1,3 +1,4 @@
+
 // =====================================================
 // PENGATURAN KONTAK & KRITIK SARAN
 // =====================================================
@@ -9,5 +10,5 @@
 
 const contactSettings = {
     adminWhatsApp: "6288902033399",
-    feedbackEndpoint: "https://script.google.com/macros/s/AKfycbxcfoLdb9JZ437-fyu9GOUONXGsVr2dpZ-Vhg2Yj2XK7j2HzOvaBZnyTvujfkSA0W3_qA/exec"
+    feedbackEndpoint: "https://script.google.com/macros/s/AKfycbx7ikoux3yC0X2jTu9ckxHP4ydzwnWnwBf_nCqta-T4v9Y2O8n94KvdWT4UXzlQGoNm/exec"
 };
