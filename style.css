@@ -1139,10 +1139,6 @@ width:100%;
     background:linear-gradient(135deg,rgba(37,211,102,.76),rgba(18,140,126,.82)) !important;
 }
 
-.feedback-menu-link{
-    background:linear-gradient(135deg,rgba(255,152,0,.78),rgba(239,108,0,.82)) !important;
-}
-
 .side-menu a.menu-action-link:hover{
     background:rgba(255,255,255,.2) !important;
 }

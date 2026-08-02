@@ -22,8 +22,6 @@ const savedDay = requestedDay || localStorage.getItem("selectedDay");
 const selectedDay = Object.hasOwn(countdownDates, savedDay) ? savedDay : "06";
 // Menandai pengguna yang baru kembali dari halaman photobox.
 const returningFromPhotobox = sessionStorage.getItem("journeyArrival") === "home";
-// Menandai pengguna yang kembali dari halaman Kritik & Saran.
-const returningFromFeedback = sessionStorage.getItem("feedbackJourney") === "to-home";
 
 // Pulihkan pilihan apabila versi lama pernah menyimpan nilai yang tidak valid.
 localStorage.setItem("selectedDay", selectedDay);
@@ -254,7 +252,7 @@ window.addEventListener("load", () => {
 
     // Jangan tampilkan loader pembuka ketika pengguna kembali dari halaman lain.
     // Transisi halaman yang sesuai sudah ditampilkan sendiri.
-    if (returningFromPhotobox || returningFromFeedback) {
+    if (returningFromPhotobox) {
         loader.remove();
         return;
     }
@@ -522,25 +520,6 @@ if (contactAdminLink) {
             alert("Nomor WhatsApp admin belum diatur. Isi adminWhatsApp pada file site-config.js.");
         });
     }
-}
-
-// =========================================
-// TRANSISI HALAMAN UTAMA <-> KRITIK & SARAN
-// =========================================
-
-const feedbackMenuLink = document.querySelector(".feedback-menu-link");
-
-if (feedbackMenuLink) feedbackMenuLink.addEventListener("click", event => {
-    event.preventDefault();
-    sessionStorage.setItem("feedbackJourney", "to-feedback");
-    const journey = showFeedbackJourney("fa-building-columns", "fa-message", "Sampaikan Kritik & Saran");
-    setTimeout(() => { location.href = feedbackMenuLink.href; }, journey.duration);
-}, { once: true });
-
-if (sessionStorage.getItem("feedbackJourney") === "to-home") {
-    sessionStorage.removeItem("feedbackJourney");
-    const journey = showFeedbackJourney("fa-message", "fa-house", "Kembali ke Informasi Pengambilan");
-    setTimeout(() => journey.layer.remove(), journey.duration + 100);
 }
 
 if (returningFromPhotobox) {
