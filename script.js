@@ -23,6 +23,55 @@ const selectedDay = Object.hasOwn(countdownDates, savedDay) ? savedDay : "06";
 // Menandai pengguna yang baru kembali dari halaman photobox.
 const returningFromPhotobox = sessionStorage.getItem("journeyArrival") === "home";
 
+// =========================================
+// SARAN MODE DESKTOP UNTUK PENGGUNA PONSEL
+// =========================================
+
+function isLikelyPhoneOutsideDesktopMode() {
+    const mobileHint = navigator.userAgentData?.mobile === true;
+    const mobileUserAgent = /Android.*Mobile|iPhone|iPod|IEMobile|Opera Mini/i.test(navigator.userAgent);
+    const hasTouchInput = navigator.maxTouchPoints > 1 || window.matchMedia("(pointer: coarse)").matches;
+    const smallPhysicalScreen = Math.min(window.screen.width, window.screen.height) <= 600;
+    const usesDesktopViewport = smallPhysicalScreen && window.innerWidth >= 900;
+
+    return (mobileHint || mobileUserAgent || (hasTouchInput && smallPhysicalScreen)) && !usesDesktopViewport;
+}
+
+function openDesktopModeGuide() {
+    const guide = document.getElementById("desktopModeGuide");
+    const reloadButton = document.getElementById("reloadDesktopMode");
+    const continueButton = document.getElementById("continueMobileMode");
+
+    if (!guide || returningFromPhotobox || sessionStorage.getItem("desktopModeGuideDismissed") || !isLikelyPhoneOutsideDesktopMode()) {
+        return Promise.resolve();
+    }
+
+    guide.hidden = false;
+    document.body.classList.add("desktop-mode-guide-active");
+
+    return new Promise(resolve => {
+        const closeGuide = () => {
+            guide.classList.add("is-closing");
+            document.body.classList.remove("desktop-mode-guide-active");
+            setTimeout(() => {
+                guide.hidden = true;
+                resolve();
+            }, 220);
+        };
+
+        reloadButton?.addEventListener("click", () => {
+            window.location.reload();
+        }, { once: true });
+
+        continueButton?.addEventListener("click", () => {
+            sessionStorage.setItem("desktopModeGuideDismissed", "true");
+            closeGuide();
+        }, { once: true });
+    });
+}
+
+const desktopModeGuideReady = openDesktopModeGuide();
+
 // Pulihkan pilihan apabila versi lama pernah menyimpan nilai yang tidak valid.
 localStorage.setItem("selectedDay", selectedDay);
 
@@ -244,7 +293,7 @@ setTimeout(() => {
 
 }, 10000);
 
-window.addEventListener("load", () => {
+window.addEventListener("load", async () => {
 
     const loader = document.getElementById("loader");
 
@@ -256,6 +305,9 @@ window.addEventListener("load", () => {
         loader.remove();
         return;
     }
+
+    // Loader utama baru dimulai setelah pengguna menutup panduan mode desktop.
+    await desktopModeGuideReady;
 
     setTimeout(() => {
 
